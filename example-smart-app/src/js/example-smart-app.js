@@ -34,10 +34,14 @@
                         } else if (prescription.medicationReference) {
                             var med = refs(prescription, prescription.medicationReference);
                             medicationlist = medicationlist.concat(getMedicationName(med && med.code.coding || []), ", ");
-                        }
+                       }
                     });
                 }
-
+                else {
+                    medicationlist = "No medications found for the selected patient";
+                }
+            });
+			
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
