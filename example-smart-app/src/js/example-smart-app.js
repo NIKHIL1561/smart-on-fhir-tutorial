@@ -41,6 +41,9 @@
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
+		  
+		  var medname = "acetaminophen";
+		  var dosage = "5.5mg";
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -59,7 +62,9 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
+		  p.medname = medname;
+		  p.dosage = dosage;
+		  
           ret.resolve(p);
         });
       } else {
@@ -83,6 +88,8 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+	  medname: {value: ''},
+	  dosage: {value: ''},
     };
   }
 
@@ -126,6 +133,8 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+	$('#medname').html(p.medname);
+	$('#dosage').html(p.dosage);
   };
 
 })(window);
