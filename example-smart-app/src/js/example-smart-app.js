@@ -21,6 +21,22 @@
                       }
                     }
                   });
+				  
+		var medicationlist;
+		smart.patient.api.fetchAllWithReferences(
+                { type: "MedicationOrder" },
+                [ "MedicationOrder.medicationReference" ]
+            ).then(function(results, refs) {
+                if (results.length) {
+                    results.forEach(function(prescription) {
+                        if (prescription.medicationCodeableConcept) {
+                           medicationlist = medicationlist.concat(getMedicationName(prescription.medicationCodeableConcept.coding), ", ");
+                        } else if (prescription.medicationReference) {
+                            var med = refs(prescription, prescription.medicationReference);
+                            medicationlist = medicationlist.concat(getMedicationName(med && med.code.coding || []), ", ");
+                        }
+                    });
+                }
 
         $.when(pt, obv).fail(onError);
 
@@ -62,7 +78,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-		  p.medname = medname;
+		  p.medname = medicationlist;
 		  p.dosage = dosage;
 		  
           ret.resolve(p);
@@ -120,6 +136,13 @@
       return undefined;
     }
   }
+  
+  function getMedicationName(medCodings) {
+            var coding = medCodings.find(function(c) {
+                return c.system == "http://www.nlm.nih.gov/research/umls/rxnorm";
+            });
+            return coding && coding.display || "Unnamed Medication(TM)";
+        }
 
   window.drawVisualization = function(p) {
     $('#holder').show();
