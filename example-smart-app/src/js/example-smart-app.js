@@ -76,7 +76,7 @@
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
-			var num = p.systolicbp.toString().match(/\d/g).join('');//.replace( /^\D+/g, '');
+			var num = p.systolicbp.toString().replace ( /[^\d.]/g, '' );
 			cellId = num;// - num%10;
           }
 
