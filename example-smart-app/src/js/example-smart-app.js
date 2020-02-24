@@ -87,7 +87,7 @@
           }			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
-          p.ldl = getQuantityValueAndUnit(ldl[0]);
+          p.ldl = cellId;//getQuantityValueAndUnit(ldl[0]);
 		  p.medname = medicationlist;
 		  p.dosage = dosage;
 		  p.x=x;
