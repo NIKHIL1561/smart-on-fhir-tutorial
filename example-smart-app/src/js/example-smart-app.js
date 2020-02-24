@@ -77,13 +77,13 @@
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
 			var num = p.systolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId = num;// - num%10;
+			cellId = num - num%10;
           }
 
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
-			//var num = diastolicbp.match(/\d/g);
-			//cellId += num - num%10;
+			var num = p.diastolicbp.toString().replace ( /[^\d.]/g, '' );
+			cellId += num - num%10;
           }			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
