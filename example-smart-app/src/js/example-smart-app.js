@@ -76,14 +76,14 @@
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
-			var num = systolicbp.match(/\d/g);
+			var num = p.systolicbp.match(/\d/g);
 			cellId = num - num%10;
           }
 
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
-			var num = diastolicbp.match(/\d/g);
-			cellId += num - num%10;
+			//var num = diastolicbp.match(/\d/g);
+			//cellId += num - num%10;
           }			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
