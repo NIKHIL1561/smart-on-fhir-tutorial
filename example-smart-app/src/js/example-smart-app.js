@@ -76,10 +76,12 @@
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
+			cellId = systolicbp - systolicbp%10;
           }
 
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
+			cellId += diastolicbp - diastolicbp%10;
           }
 		  
 		  if(p.systolicbp>0 && p.diastolicbp > 0){
