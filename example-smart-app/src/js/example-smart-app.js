@@ -83,7 +83,7 @@
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
 			var num = p.diastolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId += num - num%10;
+			cellId = cellId.concat(num - num%10);
           }			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
