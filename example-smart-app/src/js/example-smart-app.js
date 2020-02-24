@@ -64,6 +64,7 @@
 		  
 		  var medname = "acetaminophen";
 		  var dosage = "5.5mg";
+		  var x="X";
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -84,6 +85,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 		  p.medname = medicationlist;
 		  p.dosage = dosage;
+		  p.x=x;
 		  
           ret.resolve(p);
         });
@@ -110,6 +112,7 @@
       hdl: {value: ''},
 	  medname: {value: ''},
 	  dosage: {value: ''},
+	  x: {value: ''},
     };
   }
 
@@ -162,6 +165,7 @@
     $('#hdl').html(p.hdl);
 	$('#medname').html(p.medname);
 	$('#dosage').html(p.dosage);
+	$('#20050').html(p.x);
   };
 
 })(window);
