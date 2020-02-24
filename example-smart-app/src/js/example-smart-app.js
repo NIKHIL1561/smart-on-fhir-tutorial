@@ -65,6 +65,7 @@
 		  var medname = "acetaminophen";
 		  var dosage = "5.5mg";
 		  var x="X";
+		  var cellId="20090";
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -86,6 +87,7 @@
 		  p.medname = medicationlist;
 		  p.dosage = dosage;
 		  p.x=x;
+		  p.cellId=cellId;
 		  
           ret.resolve(p);
         });
@@ -113,6 +115,7 @@
 	  medname: {value: ''},
 	  dosage: {value: ''},
 	  x: {value: ''},
+	  cellId: {value: ''},
     };
   }
 
@@ -165,7 +168,7 @@
     $('#hdl').html(p.hdl);
 	$('#medname').html(p.medname);
 	$('#dosage').html(p.dosage);
-	$('#20050').html(p.x);
+	$('#'+p.cellId).html(p.x);
   };
 
 })(window);
