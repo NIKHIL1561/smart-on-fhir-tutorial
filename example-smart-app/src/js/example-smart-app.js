@@ -65,7 +65,7 @@
 		  var medname = "acetaminophen";
 		  var dosage = "5.5mg";
 		  var x="X";
-		  var cellId="20090";
+		  var cellId="";
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -81,6 +81,11 @@
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
           }
+		  
+		  if(p.systolicbp>0 && p.diastolicbp > 0){
+			  cellId = ""+p.systolicbp+""+p.diastolicbp;
+		  }
+			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
