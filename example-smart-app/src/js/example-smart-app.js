@@ -76,8 +76,8 @@
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
-			var num = p.systolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId = num - num%10;
+			//var num = p.systolicbp.toString().replace ( /[^\d.]/g, '' );
+			//cellId = num - num%10;
           }
 
           if (typeof diastolicbp != 'undefined') {
