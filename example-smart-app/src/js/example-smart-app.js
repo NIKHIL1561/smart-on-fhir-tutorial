@@ -82,12 +82,7 @@
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
 			cellId += diastolicbp - diastolicbp%10;
-          }
-		  
-		  if(p.systolicbp>0 && p.diastolicbp > 0){
-			  cellId = ""+p.systolicbp+""+p.diastolicbp;
-		  }
-			  
+          }			  
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
