@@ -66,7 +66,7 @@
 		  var dosage = "5.5mg";
 		  var x="X";
 		  var cellId="";
-
+		  var cellId2="";
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -83,11 +83,11 @@
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
 			var num2 = p.diastolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId = cellId.concat(num2 - num2%10);
+			cellId2 = (num2 - num2%10);
           }			  
 
-          p.hdl = getQuantityValueAndUnit(hdl[0]);
-          p.ldl = cellId;//getQuantityValueAndUnit(ldl[0]);
+          p.hdl = cellId//getQuantityValueAndUnit(hdl[0]);
+          p.ldl = cellId2;//getQuantityValueAndUnit(ldl[0]);
 		  p.medname = medicationlist;
 		  p.dosage = dosage;
 		  p.x=x;
