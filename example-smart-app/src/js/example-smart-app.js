@@ -65,8 +65,8 @@
 		  var medname = "acetaminophen";
 		  var dosage = "5.5mg";
 		  var x="X";
-		  var systolicbpNum="";
-		  var diastolicbpNum="";
+		  var systolicbpNum=0;
+		  var diastolicbpNum=0;
 		  var result="";
 		  var description="";
           var p = defaultPatient();
