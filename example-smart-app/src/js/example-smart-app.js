@@ -86,8 +86,8 @@
 			cellId2 = (num2 - num2%10);
           }			  
 
-          p.hdl = cellId;//getQuantityValueAndUnit(hdl[0]);
-          p.ldl = cellId2;//getQuantityValueAndUnit(ldl[0]);
+          p.hdl = getQuantityValueAndUnit(hdl[0]);
+          p.ldl = getQuantityValueAndUnit(ldl[0]);
 		  p.medname = cellId.toString()+""+cellId2.toString();
 		  p.dosage = dosage;
 		  p.x=x;
