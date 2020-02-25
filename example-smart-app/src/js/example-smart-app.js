@@ -113,8 +113,7 @@
 							+"\n-shortness of breath"
 							+"\n-unsteadiness"
 							+"\n-dizziness"
-							+"\n-lightheadedness"
-							+"\n-fainting";
+							+"\n-lightheadedness";
 		  }
 		  else
 		  {
