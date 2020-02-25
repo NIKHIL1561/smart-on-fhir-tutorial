@@ -88,7 +88,7 @@
 
           p.hdl = cellId//getQuantityValueAndUnit(hdl[0]);
           p.ldl = cellId2;//getQuantityValueAndUnit(ldl[0]);
-		  p.medname = medicationlist;
+		  p.medname = cellId.concat(cellId2);
 		  p.dosage = dosage;
 		  p.x=x;
 		  p.cellId=cellId;
