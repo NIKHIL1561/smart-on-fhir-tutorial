@@ -127,7 +127,7 @@
 		  p.x=x.bold();
 		  p.cellId=systolicbpNum.toString()+""+diastolicbpNum.toString();
 		  p.result = result;
-		  p.description = description;
+		  p.description = p.cellId;
           ret.resolve(p);
         });
       } else {
