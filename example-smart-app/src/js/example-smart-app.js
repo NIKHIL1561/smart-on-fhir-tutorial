@@ -88,9 +88,9 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-		  p.medname = cellId.toString()+""+cellId2.toString();
-		  p.dosage = dosage;
-		  p.x=x;
+		  p.medname = medicationlist;// cellId.toString()+""+cellId2.toString();
+		  //p.dosage = dosage;
+		  p.x=x.bold();
 		  p.cellId=cellId.toString()+""+cellId2.toString();
 		  
           ret.resolve(p);
