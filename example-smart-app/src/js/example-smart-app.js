@@ -126,7 +126,7 @@
 		  //p.dosage = dosage;
 		  p.x=x.bold();
 		  p.cellId=systolicbpNum.toString()+""+diastolicbpNum.toString();
-		  p.result = result;
+		  p.result = result.bold();
 		  p.description = description;
           ret.resolve(p);
         });
@@ -211,7 +211,6 @@
 	$('#dosage').html(p.dosage);
 	$('#'+p.cellId).html(p.x);
 	$('#result').html(p.result);
-	$('#description').html(p.description);
   };
 
 })(window);
