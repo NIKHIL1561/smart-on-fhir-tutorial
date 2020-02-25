@@ -210,8 +210,8 @@
 	$('#medname').html(p.medname);
 	$('#dosage').html(p.dosage);
 	$('#'+p.cellId).html(p.x);
-	$('result').html(p.result);
-	$('description').html(p.description);
+	$('#result').html(p.result);
+	$('#description').html(p.description);
   };
 
 })(window);
