@@ -65,8 +65,10 @@
 		  var medname = "acetaminophen";
 		  var dosage = "5.5mg";
 		  var x="X";
-		  var cellId="";
-		  var cellId2="";
+		  var systolicbpNum="";
+		  var diastolicbpNum="";
+		  var result="";
+		  var description="";
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -77,22 +79,56 @@
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
 			var num = p.systolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId = num - num%10;
+			systolicbpNum = num - num%10;
           }
 
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
 			var num2 = p.diastolicbp.toString().replace ( /[^\d.]/g, '' );
-			cellId2 = (num2 - num2%10);
+			diastolicbpNum = (num2 - num2%10);
           }			  
-
+		 
+		  if(systolicbpNum>139 || diastolicbpNum>89)
+		  {
+			  result = "HIGH BLOOD PRESSURE";
+			  description = "Your BP reading is high. Known as the silent killer, high blood pressure rarely has obvious symptoms. But left untreated, it increases your risk of having a heart attack or stroke";
+		  }
+		  else if(systolicbpNum>119 || diastolicbpNum>79)
+		  {
+			  result = "PRE-HIGH BLOOD PRESSURE";
+			  description = "While your blood pressure is OK, it still might be described as being high-normal. Ideally, it should be below 120/80mmHg";
+		  }
+		  else if(systolicbpNum>89 || diastolicbpNum>59)
+		  {
+			  result = "IDEAL BLOOD PRESSURE";
+			  description = "Your blood pressure is in the ideal range. Keep up the healthy lifestyle";
+		  }
+		   else if(systolicbpNum>69 || diastolicbpNum>39)
+		  {
+			  result = "LOW BLOOD PRESSURE";
+			  description = "Naturally low blood pressure is unlikely to cause any symptoms and is normally nothing to worry about"
+							+"\n\nHowever, if you have any of the following symptoms, please see your doctor:"
+							+"\n-chest pain"
+							+"\n-sweating"
+							+"\n-shortness of breath"
+							+"\n-unsteadiness"
+							+"\n-dizziness"
+							+"\n-lightheadedness"
+							+"\n-fainting";
+		  }
+		  else
+		  {
+			  result = "Data not available";
+			  description = "-";
+		  }
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 		  p.medname = medicationlist;
 		  //p.dosage = dosage;
 		  p.x=x.bold();
-		  p.cellId=cellId.toString()+""+cellId2.toString();
-		  
+		  p.cellId=systolicbpNum.toString()+""+diastolicbpNum.toString();
+		  p.result = result;
+		  p.description = description;
           ret.resolve(p);
         });
       } else {
@@ -120,6 +156,8 @@
 	  dosage: {value: ''},
 	  x: {value: ''},
 	  cellId: {value: ''},
+	  result: {value: ''},
+	  description: {value: ''},
     };
   }
 
@@ -173,6 +211,8 @@
 	$('#medname').html(p.medname);
 	$('#dosage').html(p.dosage);
 	$('#'+p.cellId).html(p.x);
+	$('result').html(p.result);
+	$('description').html(p.description);
   };
 
 })(window);
